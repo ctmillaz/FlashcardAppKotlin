@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'jacoco-android'
+/*apply plugin: 'com.dicedmelon.gradle.jacoco-android'*/
 apply plugin: 'com.google.gms.google-services'
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -10,6 +10,9 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
+//    androidExtensions {
+//        experimental = true
+//    }
     signingConfigs {
         config {
             keyAlias keystoreProperties['keyAlias']
@@ -74,13 +77,9 @@ android {
     }
 }
 
-androidExtensions {
-    experimental = true
-}
-
-tasks.withType(Test) {
+/*tasks.withType(Test) {
     jacoco.includeNoLocationClasses = true
-}
+}*/
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
