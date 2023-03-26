@@ -10,4 +10,5 @@
 /build
 /captures
 .externalNativeBuild
-keystore.properties
+/keystore.properties
+/my-logs.txt
